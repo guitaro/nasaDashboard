@@ -1,0 +1,20 @@
+{
+  "GLOBAL": {
+    "LOADER": {
+      "LABEL": "Loading ..."
+    }
+  },
+  "LOGIN": {
+    "TITLE": "Login"
+  },
+  "DASHBOARD": {
+    "TITLE": "Dashboard"
+  },
+  "FACILITIES": {
+    "TITLE": "NASA Facilities",
+    "SUBTITLE": "All facilities",
+    "SERVICE": {
+      "URL": "https://data.nasa.gov/resource/9g7e-7hzz.json"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="ndb-app">
+    <head>
+        <meta charset="UTF-8">
+        <title>NASA Dashboard</title>
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/sb-admin.css"/>
+        <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css"/>
+
+    </head>
+    <body>
+
+        <div ng-include="'src/app.template.html'" ng-cloak></div>
+        <!-- /#wrapper -->
+
+        <!-- lib -->
+        <!-- Angular -->
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <!-- Design -->
+        <!-- jQuery -->
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- core -->
+        <script src="src/app.module.js"></script>
+
+        <!-- services -->
+        <script src="src/services/ndbConfig.js"></script>
+        <script src="src/services/usaCountryService.js"></script>
+        <script src="src/services/facilitiesService.js"></script>
+
+        <!-- directives -->
+
+        <!-- controllers -->
+        <script src="src/controllers/mainController.js"></script>
+        <script src="src/controllers/loginController.js"></script>
+        <script src="src/controllers/dashboardController.js"></script>
+        <script src="src/controllers/facilitiesController.js"></script>
+        <script src="src/controllers/errorController.js"></script>
+
+        <!-- core -->
+        <script src="src/app.config.js"></script>
+        <script src="src/app.route.js"></script>
+    </body>
+</html>
