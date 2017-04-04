@@ -1,5 +1,5 @@
 
-<div class="container-fluid">
+<div class="container-fluid" id="content-facilities-page">
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -17,12 +17,12 @@
     <!-- /.row -->
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-offset-9 col-lg-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-comments fa-5x"></i>
+                            <i class="fa fa-industry fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">{{facilitiesCtrl.fields.facilitiesList.length}}</div>
@@ -35,31 +35,74 @@
     </div>
     <!-- /.row -->
 
+    <!--<div class="row">-->
+        <!--<div class="col-lg-12">-->
+            <!--<div class="table-responsive">-->
+                <!--<table ng-table="facilitiesCtrl.fields.tableParams" class="table table-hover" show-filter="true">-->
+                    <!--<tr ng-repeat="facility in $data" class="{{facility.statusClass}}">-->
+                        <!--<td title="'Name'" filter="{ name: 'text'}" sortable="'name'" ng-bind-html="facility.link"></td>-->
+                        <!--<td title="'State'" filter="{ state: 'text'}" sortable="'state'">{{facility.state}}</td>-->
+                        <!--<td title="'Activity'">{{facility.desc}}</td>-->
+                        <!--<td title="'Status'" filter="{ status: 'text'}" sortable="'status'" class="text-center">{{facility.status}}</td>-->
+                        <!--<td title="'Maps'" class="text-center">-->
+                            <!--<a href="" class="btn btn-primary" ng-click="facilitiesCtrl.fn.showMap(facility)">-->
+                                <!--<i class="fa fa-map-marker"></i>-->
+                            <!--</a>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>State</th>
-                            <th>Activity</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody ng-repeat="facility in facilitiesCtrl.fields.facilitiesList track by $index">
-                        <tr class="{{facility.statusClass}}">
-                            <td>{{$index}}</td>
-                            <td ng-bind-html="facility.name"></td>
-                            <td>{{facility.state}}</td>
-                            <td>{{facility.desc}}</td>
-                            <td>{{facility.status}}</td>
-                        </tr>
-                    </tbody>
+                <table ng-table="facilitiesCtrl.fields.tableParams" class="table table-condensed table-hover" show-filter="true">
+                    <tr class="ng-table-group" ng-repeat-start="group in $groups">
+                        <td colspan="5">
+                            <a href="" ng-click="group.$hideRows = !group.$hideRows">
+                                <span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
+                                <strong>{{ group.value }}</strong>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="facility in group.data" class="{{facility.statusClass}}" ng-hide="group.$hideRows" ng-repeat-end>
+                        <td title="'Name'" filter="{ name: 'text'}" sortable="'name'" ng-bind-html="facility.link"></td>
+                        <td title="'State'" filter="{ state: 'text'}" sortable="'state'">{{facility.state}}</td>
+                        <td title="'Activity'">{{facility.desc}}</td>
+                        <td title="'Status'" filter="{ status: 'text'}" sortable="'status'" class="text-center">{{facility.status}}</td>
+                        <td title="'Maps'" class="text-center">
+                            <a href="" class="btn btn-primary" ng-click="facilitiesCtrl.fn.showMap(facility)">
+                                <i class="fa fa-map-marker"></i>
+                            </a>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
     </div>
 </div>
 <!-- /.container-fluid -->
+<div id="modal-map" class="modal fade" tabindex="-1" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">{{facilitiesCtrl.fields.map.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="map-canvas" class=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
